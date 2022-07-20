@@ -38,9 +38,6 @@ vim.opt.incsearch = true
 -- Save undo history
 vim.opt.undofile = true
 
--- Better colors
-vim.opt.termguicolors = true
-
 -- Graphical
 vim.g.mouse = 'a'
 vim.opt.digraph = true
@@ -61,10 +58,6 @@ vim.opt.cmdheight = 2
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- Make whitespace characters visible
-vim.opt.list = true  --> set to `true` to see whitespace characters
-vim.opt.listchars = { nbsp = '+', trail = '●', eol = "↲", tab = "━━"}
-
 -- Setup path of python3 executable to work with virtual environments
 if vim.env.VIRTUAL_ENV ~= nil then
   vim.g.python3_host_prog = vim.env.VIRTUAL_ENV .. "/bin/python3"
@@ -74,4 +67,4 @@ end
 
 -- Set random theme
 local utils = require("user.utils")
-vim.cmd( "colorscheme " .. utils.GetRandomColor() )
+vim.cmd( "colorscheme " .. utils.GetRandomTheme() )

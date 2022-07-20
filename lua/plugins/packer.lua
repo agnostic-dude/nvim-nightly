@@ -65,11 +65,17 @@ local function plugins(use)
   --> Utilities for coding
   use "jiangmiao/auto-pairs" --> autocomplete & link parenthesis
   use "tpope/vim-commentary" --> gc/gcc to comment/uncomment
-  use "norcalli/nvim-colorizer.lua" --> highlight colorcodes in relevant color
+
+  -- use "norcalli/nvim-colorizer.lua" --> highlight colorcodes in relevant color
+  use { "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  }
 
   --> Statusline
   use { "nvim-lualine/lualine.nvim",
-  requires = { "kyazdani42/nvim-web-devicons", opt = true } }
+    requires = { "kyazdani42/nvim-web-devicons", opt = true } }
 
   --> Persistant floating terminals that can be toggled
   use { "akinsho/toggleterm.nvim", tag = "v2.*" }
@@ -80,8 +86,11 @@ local function plugins(use)
   --> Show levels of indentation
   use "lukas-reineke/indent-blankline.nvim"
 
-
---=============================================================================
+  --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -- PARSE PROGRAMMING LANGUAGE SOURCE CODE
+  --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  use { "nvim-treesitter/nvim-treesitter", run = "<Cmd>TSUpdate" }
+  use "nvim-treesitter/nvim-treesitter-textobjects"
 
   if packer_bootstrap then
     print "Need to restart neovim after installation!"

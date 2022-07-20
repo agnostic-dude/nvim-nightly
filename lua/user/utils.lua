@@ -13,7 +13,8 @@ local colorschemes = {
   "codedark",
 }
 
-function M.GetRandomColor()
+function M.GetRandomTheme()
+  math.randomseed(os.time())
   local randnum = math.random(#colorschemes)
   return colorschemes[randnum]
 end
