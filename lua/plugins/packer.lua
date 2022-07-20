@@ -107,6 +107,7 @@ local function plugins(use)
   -- PARSE PROGRAMMING LANGUAGE SOURCE CODE
   --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   use { "nvim-treesitter/nvim-treesitter", run = "<Cmd>TSUpdate" }
+  use "nvim-treesitter/nvim-treesitter-textobjects"
 
   if packer_bootstrap then
     print "Need to restart neovim after installation!"
