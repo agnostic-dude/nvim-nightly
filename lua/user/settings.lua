@@ -71,3 +71,7 @@ if vim.env.VIRTUAL_ENV ~= nil then
 else
   vim.g.python3_host_prog = '/usr/bin/python3'
 end
+
+-- Set random theme
+local utils = require("user.utils")
+vim.cmd( "colorscheme " .. utils.GetRandomColor() )

@@ -27,20 +27,20 @@ nmap("<C-l>", "<C-w>l")
 nmap("<C-h>", "<C-w>h")
 
 -- Ctrl-s to save in NORMAL & INSERT modes
-nmap("<C-s>", "<Cmd>w<CR>") -- nmap(...)
-imap("<C-s>", "<Esc><Cmd>w<CR>a") -- imap(...)
+nmap("<C-s>", "<Cmd>w<CR>")       --> nmap(...)
+imap("<C-s>", "<Esc><Cmd>w<CR>a") --> imap(...)
 
 -- Ctrl-q closes current split
 nmap("<C-q>", "<C-w>q")
 
 -- Clear highlighted text with <Escape> key
-nmap("<ESC>", ":nohlsearch<Bar>:echo<cr>")
+nmap("<ESC>", ":nohlsearch<Bar>:echo<CR>")
 
 -- Captalize previous word in INSERT mode
 imap("<C-u>", "<Esc>viwUea")
 
--- Show current colorscheme (colorscheme show)
-nmap("<Leader>cs", "<Cmd>colorscheme<CR>")
+-- Source current luafile
+nmap("<Leader>ls", "<Cmd>luafile %<CR>")
 
 -- Go to startify splash screen
 nmap("<Leader>a", "<Cmd>Alpha<CR>")
@@ -48,10 +48,19 @@ nmap("<Leader>a", "<Cmd>Alpha<CR>")
 -------------------------------------------------------------------------------
 -- COLORSCHEME settings
 -------------------------------------------------------------------------------
+-- Switch between DARK and LIGHT backgrounds
+local function ToggleBackground()
+  if vim.o.background == "dark" then
+    vim.o.background = "light"
+  else
+    vim.o.background = "dark"
+  end
+end
+
+nmap("<Leader>cs", "<Cmd>colorscheme<CR>")    --> show colorscheme
 nmap("<Leader>cn", "<Cmd>CycleColorNext<CR>") --> colorscheme next
 nmap("<Leader>cp", "<Cmd>CycleColorPrev<CR>") --> colorscheme previous
-nmap("<Leader>bg", "<Cmd>lua print(vim.o.background)<CR>") --> print background hue
-nmap("<Leader>bt", "<Cmd>lua BackgroundToggle()<CR>") --> toggle background light<->dark
+nmap("<Leader>bg", ToggleBackground) --> toggle background light<->dark
 
 -------------------------------------------------------------------------------
 -- TELESCOPE.NVIM

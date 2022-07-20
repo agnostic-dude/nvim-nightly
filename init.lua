@@ -6,3 +6,9 @@
 require "user.settings"
 require "user.autocommands"
 require "user.keymaps"
+require "user.plugins"
+
+require "plugins.toggleterm"
+require "plugins.lualine"
+require "plugins.gitsigns"
+require "plugins.indentblankline"
