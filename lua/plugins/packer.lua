@@ -98,8 +98,6 @@ local function plugins(use)
   --> Configurations for builtin LSP client
   use "neovim/nvim-lspconfig"
 
-<<<<<<< Updated upstream
-=======
   --> Statusline
   use { "nvim-lualine/lualine.nvim",
   requires = { "kyazdani42/nvim-web-devicons", opt = true } }
@@ -116,10 +114,7 @@ local function plugins(use)
   --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   -- PARSE PROGRAMMING LANGUAGE SOURCE CODE
   --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  --
-  --
 
->>>>>>> Stashed changes
   if packer_bootstrap then
     print "Need to restart neovim after installation!"
     require("packer").sync()
