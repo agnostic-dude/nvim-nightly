@@ -103,6 +103,28 @@ local function plugins(use)
     requires = "nvim-lua/plenary.nvim"
   }
 
+<<<<<<< Updated upstream
+=======
+  --> Statusline
+  use { "nvim-lualine/lualine.nvim",
+  requires = { "kyazdani42/nvim-web-devicons", opt = true } }
+
+  --> Persistant floating terminals that can be toggled
+  use { "akinsho/toggleterm.nvim", tag = "v2.*" }
+
+  --> Git support
+  use { "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" }
+
+  --> Show levels of indentation
+  use "lukas-reineke/indent-blankline.nvim"
+
+  --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -- PARSE PROGRAMMING LANGUAGE SOURCE CODE
+  --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  --
+  --
+
+>>>>>>> Stashed changes
   if packer_bootstrap then
     print "Need to restart neovim after installation!"
     require("packer").sync()
