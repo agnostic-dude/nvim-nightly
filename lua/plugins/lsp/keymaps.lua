@@ -30,7 +30,7 @@ function M.on_attach(client, bufnr)
   nnoremap("<Leader>dn", vim.diagnostic.goto_next)
   nnoremap("<Leader>dl", vim.diagnostic.setloclist)
 
-  buf_noremap("n", "K",  vim.lsp.buf.hover)
+  buf_noremap("n", "K", vim.lsp.buf.hover)
   buf_noremap("n", "gd", vim.lsp.buf.definition)
   buf_noremap("n", "gt", vim.lsp.buf.type_definition)
   buf_noremap("n", "gi", vim.lsp.buf.implementation)
@@ -42,7 +42,7 @@ function M.on_attach(client, bufnr)
   buf_noremap("n", "<Leader>ca", vim.lsp.buf.code_action)
   buf_noremap("v", "<Leader>ca", vim.lsp.buf.range_code_action)
 
-  buf_noremap("n", "<Leader>fx", vim.lsp.buf.formatting)
+  buf_noremap("n", "<Leader>fx", vim.lsp.buf.format)
   buf_noremap("x", "<Leader>fx", vim.lsp.buf.range_formatting)
 
 end
