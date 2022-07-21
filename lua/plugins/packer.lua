@@ -46,7 +46,7 @@ local function plugins(use)
       startify.section.bottom_buttons.val = {
         startify.button("v", "Neovim Config",
             "<cmd>e ~/.config/nvim/init.lua<cr>"),
-        startify.button("q", "Exit Neovim",   "qa<cr>"),
+        startify.button("q", "Quit Neovim",   "<cmd>q <cr>"),
       }
     end
   }
@@ -89,11 +89,9 @@ local function plugins(use)
   --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   -- PARSE PROGRAMMING LANGUAGE SOURCE CODE
   --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<<<<<<< HEAD
   use { "nvim-treesitter/nvim-treesitter", run = "<Cmd>TSUpdate" }
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
-=======
   --> Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = "<Cmd>TSUpdate" }
   use "nvim-treesitter/nvim-treesitter-textobjects"
@@ -101,7 +99,6 @@ local function plugins(use)
   --> Configurations for builtin LSP client
   use "neovim/nvim-lspconfig"
 
->>>>>>> dev
   if packer_bootstrap then
     print "Need to restart neovim after installation!"
     require("packer").sync()
