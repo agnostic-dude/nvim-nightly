@@ -76,3 +76,11 @@ nmap("<Leader>fh", '<Cmd>lua require("telescope.builtin").help_tags()<CR>')
 nmap("<Leader>tt", "<Cmd>NvimTreeToggle<CR>") --> open/close tree
 nmap("<Leader>tf", "<Cmd>NvimTreeFocus<CR>") --> open and focus on tree
 nmap("<Leader>tc", "<Cmd>NvimTreeCollapse<CR>") --> recursively collapse nvim-tree
+
+-------------------------------------------------------------------------------
+-- PACKER.NVIM
+-------------------------------------------------------------------------------
+nmap("<Leader>ps", "<Cmd>PackerSync<CR>")   --> Synchronize
+nmap("<Leader>pu", "<Cmd>PackerUpdate<CR>") --> Update
+nmap("<Leader>pc", "<Cmd>PackerClean<CR>")  --> Clean up
+nmap("<Leader>pi", "<Cmd>PackerStatus<CR>") --> Read "Packer Info"

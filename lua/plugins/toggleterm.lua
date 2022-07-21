@@ -1,3 +1,16 @@
+--=============================================================================
+-- Neovim Nightly Edtion (version 0.8)
+-- toggleterm.nvim: configurations & keymappings
+--=============================================================================
+-- Scrolling inside toggleterm with vim movement keys
+-- Escape (CapsLock) to enter NORMAL mode; then use movement keys j, k, <C-n>,
+-- <C-p>, <C-d>, <C-u> to move within the floating terminal
+function _G.set_terminal_keymaps()
+  local opts = { noremap = true }
+  vim.api.nvim_buf_set_keymap(0, "t", "<Esc>", "<C-\\><C-n>", opts)
+end
+vim.cmd [[ autocmd! TermOpen term://* lua set_terminal_keymaps() ]]
+
 require("toggleterm").setup {
   -- size can be a number or function which is passed the current terminal
   size = 80,
@@ -35,8 +48,8 @@ require("toggleterm").setup {
     border = 'curved',
     width = 160,
     height = 38,
-    -- winblend = 3,
-    windblend = 30,
+    winblend = 3,
+    -- windblend = 30,
     highlights = {
       border = "Normal",
       background = "Normal",

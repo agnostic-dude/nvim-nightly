@@ -89,9 +89,19 @@ local function plugins(use)
   --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   -- PARSE PROGRAMMING LANGUAGE SOURCE CODE
   --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<<<<<<< HEAD
   use { "nvim-treesitter/nvim-treesitter", run = "<Cmd>TSUpdate" }
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
+=======
+  --> Treesitter
+  use { "nvim-treesitter/nvim-treesitter", run = "<Cmd>TSUpdate" }
+  use "nvim-treesitter/nvim-treesitter-textobjects"
+
+  --> Configurations for builtin LSP client
+  use "neovim/nvim-lspconfig"
+
+>>>>>>> dev
   if packer_bootstrap then
     print "Need to restart neovim after installation!"
     require("packer").sync()

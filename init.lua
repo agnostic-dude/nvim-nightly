@@ -13,3 +13,5 @@ require "plugins.lualine"
 require "plugins.gitsigns"
 require "plugins.indentblankline"
 require "plugins.treesitter"
+
+require "plugins.lsp"
