@@ -65,11 +65,22 @@ nmap("<Leader>bg", ToggleBackground) --> toggle background light<->dark
 -------------------------------------------------------------------------------
 -- TELESCOPE.NVIM
 -------------------------------------------------------------------------------
+-- File pickers
 nmap("<Leader>ff", '<Cmd>lua require("telescope.builtin").find_files()<CR>')
 nmap("<Leader>fg", '<Cmd>lua require("telescope.builtin").live_grep()<CR>')
 nmap("<Leader>fb", '<Cmd>lua require("telescope.builtin").buffers()<CR>')
 nmap("<Leader>fh", '<Cmd>lua require("telescope.builtin").help_tags()<CR>')
+nmap("<Leader>fs", '<Cmd>lua require("telescope.builtin").grep_string()<CR>')
 
+-- Git pickers
+nmap("<Leader>gc", '<Cmd>lua require("telescope.builtin").git_commits()<CR>')
+nmap("<Leader>gC", '<Cmd>lua require("telescope.builtin").git_bcommits()<CR>')
+nmap("<Leader>gb", '<Cmd>lua require("telescope.builtin").git_branches()<CR>')
+nmap("<Leader>gs", '<Cmd>lua require("telescope.builtin").git_status()<CR>')
+nmap("<Leader>gS", '<Cmd>lua require("telescope.builtin").git_stash()<CR>')
+
+-- Treesitter picker
+nmap("<Leader>tp", '<Cmd>lua require("telescope.builtin").treesitter()<CR>')
 -------------------------------------------------------------------------------
 -- NVIM-TREE
 -------------------------------------------------------------------------------
