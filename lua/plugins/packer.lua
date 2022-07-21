@@ -113,6 +113,11 @@ local function plugins(use)
   --> Configurations for builtin LSP client
   use "neovim/nvim-lspconfig"
 
+  --> Find, filter, preview & pick
+  use { "nvim-telescope/telescope.nvim", branch = "0.1.x",
+    requires = "nvim-lua/plenary.nvim"
+  }
+
   if packer_bootstrap then
     print "Need to restart neovim after installation!"
     require("packer").sync()
