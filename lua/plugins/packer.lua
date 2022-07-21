@@ -1,15 +1,15 @@
 --=============================================================================
 -- Neovim Nightly Edtion (version 0.8)
--- Plugin manager configuration: packer.nvim
+-- Neovim plugin manager configuration: packer config
 --=============================================================================
---> Imported by plugin.lua
+
 local packer_bootstrap = false --> indicate 1st time installation
 
 -- packer.nvim configuration
 local conf = {
   display = {
     open_fn = function()
-      return require("packer.util").float( {border="rounded"} )
+      return require("packer.util").float({ border = "rounded" })
     end,
   },
 }
@@ -47,21 +47,21 @@ local function plugins(use)
       require("alpha").setup(startify.opts)
       startify.section.bottom_buttons.val = {
         startify.button("v", "Neovim Config",
-            "<cmd>e ~/.config/nvim/init.lua<cr>"),
-        startify.button("q", "Quit Neovim",   "<cmd>q <cr>"),
+          "<cmd>e ~/.config/nvim/init.lua<cr>"),
+        startify.button("q", "Quit Neovim", "<cmd>q <cr>"),
       }
     end
   }
 
   --> Colorschemes
   use "folke/tokyonight.nvim" --> TokyoNight colorscheme for VSCode
-  use "tomasr/molokai"        --> vim port of Monokai theme for TextMate
-  use "joshdick/onedark.vim"  --> theme inspired by Atom
-  use "morhetz/gruvbox"       --> community groove colorscheme
+  use "tomasr/molokai" --> vim port of Monokai theme for TextMate
+  use "joshdick/onedark.vim" --> theme inspired by Atom
+  use "morhetz/gruvbox" --> community groove colorscheme
   use "tomasiser/vim-code-dark" --> inspired by Dark+ scheme of VSCode
-  use "EdenEast/nightfox.nvim"  --> dark theme written in lua
-  use "vim-scripts/CycleColor"  --> cycle through colorschemes in rtp
-  use "sainnhe/sonokai"  --> high-contrast, vivid theme based on Monokai Pro
+  use "EdenEast/nightfox.nvim" --> dark theme written in lua
+  use "vim-scripts/CycleColor" --> cycle through colorschemes in rtp
+  use "sainnhe/sonokai" --> high-contrast, vivid theme based on Monokai Pro
   use "NLKNguyen/papercolor-theme" --> inspired by Google's Material Design
 
   --> Utilities for coding
@@ -89,7 +89,7 @@ local function plugins(use)
   use "lukas-reineke/indent-blankline.nvim"
 
   -----------------------------------------------------------------------------
-  -- PARSE PROGRAMMING LANGUAGE SOURCE CODE
+  -- PLUGINS RELATED TO PROGRAMMING
   -----------------------------------------------------------------------------
   --> Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = "<Cmd>TSUpdate" }
@@ -98,7 +98,10 @@ local function plugins(use)
   --> Configurations for builtin LSP client
   use "neovim/nvim-lspconfig"
 
-  -----------------------------------------------------------------------------
+  --> Find, filter, preview & pick
+  use { "nvim-telescope/telescope.nvim", branch = "0.1.x",
+    requires = "nvim-lua/plenary.nvim"
+  }
 
   if packer_bootstrap then
     print "Need to restart neovim after installation!"
