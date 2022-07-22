@@ -10,28 +10,32 @@ local lsp_flags = {
   debounce_text_changes = 150, --> default
 }
 
--- pyright-langserver : python (pacman -S pyright)
-nvim_lsp.pyright.setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
+local servers = {
+  "pyright",
+  "sumneko_lua",
+  "clangd",
+  "tsserver",
 }
 
--- lua-language-server: lua (pacman -S lua-language-server)
-nvim_lsp.sumneko_lua.setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
+for _, server in ipairs(servers) do
+  if server == "sumneko_lua" then
+    nvim_lsp.sumneko_lua.setup {
+      on_attach = on_attach,
+      flags = lsp_flags,
 
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+        },
       },
-    },
-  },
-}
+    }
 
--- clangd: C, C++ (pacman -S clang)
-nvim_lsp.clangd.setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
+  else
+    nvim_lsp[server].setup {
+      on_attach = on_attach,
+      flags = lsp_flags,
+    }
+  end
+end
