@@ -1,4 +1,7 @@
--- Configuration for Lualine
+--=============================================================================
+-- Neovim Nightly Edtion (version 0.8)
+-- Configurations for statusline written in lua
+--=============================================================================
 -- These are the default values, given in github page.
 require('lualine').setup {
   options = {

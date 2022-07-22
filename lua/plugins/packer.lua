@@ -1,6 +1,8 @@
---> Configuration for packer.nvim
+--=============================================================================
+-- Neovim Nightly Edtion (version 0.8)
+-- Plugin manager configuration: packer.nvim
+--=============================================================================
 --> Imported by plugin.lua
-
 local packer_bootstrap = false --> indicate 1st time installation
 
 -- packer.nvim configuration
@@ -86,12 +88,9 @@ local function plugins(use)
   --> Show levels of indentation
   use "lukas-reineke/indent-blankline.nvim"
 
-  --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  -----------------------------------------------------------------------------
   -- PARSE PROGRAMMING LANGUAGE SOURCE CODE
-  --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  use { "nvim-treesitter/nvim-treesitter", run = "<Cmd>TSUpdate" }
-  use "nvim-treesitter/nvim-treesitter-textobjects"
-
+  -----------------------------------------------------------------------------
   --> Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = "<Cmd>TSUpdate" }
   use "nvim-treesitter/nvim-treesitter-textobjects"

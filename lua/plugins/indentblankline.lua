@@ -1,3 +1,7 @@
+--=============================================================================
+-- Neovim Nightly Edtion (version 0.8)
+-- Show indentation guides in colors of rainbow
+--=============================================================================
 --> Copied from github.com
 
 vim.opt.termguicolors = true

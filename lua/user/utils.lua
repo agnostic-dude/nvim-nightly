@@ -1,3 +1,7 @@
+--=============================================================================
+-- Neovim Nightly Edtion (version 0.8)
+-- Utility functions to be used by other configs
+--=============================================================================
 local M = {}
 
 --> TODO: Nightfox colorscheme is highly customizable. I need to lookup options
