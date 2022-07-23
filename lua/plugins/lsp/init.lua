@@ -10,10 +10,11 @@ local lsp_flags = {
 }
 
 local servers = {
-  "pyright",
-  "sumneko_lua",
-  "clangd",
-  "tsserver",
+  "pyright",          --> python
+  "sumneko_lua",      --> lua
+  "clangd",           --> C, C++, Objective-C
+  "tsserver",         --> typescript, javascript
+  "bashls",           --> bash, zsh
 }
 
 for _, server in ipairs(servers) do
