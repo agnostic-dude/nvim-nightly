@@ -4,7 +4,6 @@
 --=============================================================================
 
 local nvim_lsp = require "lspconfig"
-
 local on_attach = require("plugins.lsp.keymaps").on_attach
 local lsp_flags = {
   debounce_text_changes = 150, --> default
@@ -38,4 +37,13 @@ for _, server in ipairs(servers) do
       flags = lsp_flags,
     }
   end
+end
+
+-------------------------------------------------------------------------------
+-- Configure LSP diagnostics
+-------------------------------------------------------------------------------
+local signs = { Error = "", Warn = "", Info = "", Hint = "" }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
