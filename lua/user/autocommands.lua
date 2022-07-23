@@ -47,14 +47,14 @@ local numbertoggle = vim.api.nvim_create_augroup("numbertoggle", { clear = true 
 
 -- relative line numbers in active buffer
 vim.api.nvim_create_autocmd(
-	{ "BufEnter", "FocusGained", "InsertLeave" },
-	{ pattern = "*", command = "set relativenumber", group = numbertoggle }
+  { "BufEnter", "FocusGained", "InsertLeave" },
+  { pattern = "*", command = "set relativenumber", group = numbertoggle }
 )
 
 -- absolute line numbers in inactive buffer
 vim.api.nvim_create_autocmd(
-	{ "BufLeave", "FocusLost", "InsertEnter" },
-	{ pattern = "*", command = "set norelativenumber", group = numbertoggle }
+  { "BufLeave", "FocusLost", "InsertEnter" },
+  { pattern = "*", command = "set norelativenumber", group = numbertoggle }
 )
 
 -------------------------------------------------------------------------------
@@ -63,13 +63,13 @@ vim.api.nvim_create_autocmd(
 -- Make AutoPairs understand python F-strings & byte strings
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "python",
-  command = "let b:AutoPairs = AutoPairsDefine({ 'f\"': '\"', 'b\"': '\"' })"
+  command = [[ let b:AutoPairs = AutoPairsDefine({ "f'": "'", "b'": "'" }) ]]
 })
 
 -- Make AutoPairs understand markup language angle brackets
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "html", "xml" },
-  command = "let b:AutoPairs = AutoPairsDefine({ '<': '>' })"
+  command = [[  let b:AutoPairs = AutoPairsDefine({ '<': '>' }) ]]
 })
 
 -- Auto-complete HTML tags with omnicomplete
