@@ -12,20 +12,18 @@ function M.on_attach(client, bufnr)
   -- Enable <C-x><C-o> triggered OMNICOMPLETION
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  -- Keymappings (look up ":h vim.lsp.*" for documentation on any of following)
-  local opts = { noremap = true, silent = true }
-  local buf_opts = { noremap = true, silent = true, buffer = bufnr }
-
   local function nnoremap(lhs, rhs)
+    local opts = { noremap = true, silent = true }
     vim.keymap.set("n", lhs, rhs, opts)
   end
 
   local function buf_noremap(mode, lhs, rhs)
+    local buf_opts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set(mode, lhs, rhs, buf_opts)
   end
 
-  -- Open diagnostics in a floating window
-  nnoremap("<Leader>do", vim.diagnostic.open_float)
+  -- Keymappings (look up ":h vim.lsp.*" for documentation on any of following)
+  nnoremap("<Leader>do", vim.diagnostic.open_float) --> diagnostics in floating window
   nnoremap("<Leader>dp", vim.diagnostic.goto_prev)
   nnoremap("<Leader>dn", vim.diagnostic.goto_next)
   nnoremap("<Leader>dl", vim.diagnostic.setloclist)
