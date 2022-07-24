@@ -3,5 +3,5 @@
 -- LSP configuration: init
 --=============================================================================
 
-require "plugins.lsp.cmp"
+require "plugins.lsp.coq_nvim"
 require "plugins.lsp.launcher"

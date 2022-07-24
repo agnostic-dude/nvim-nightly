@@ -3,10 +3,7 @@
 -- Launch builtin LSP
 --=============================================================================
 local nvim_lsp = require "lspconfig"
-
--- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local coq = require "coq"
 
 local on_attach = require("plugins.lsp.keymaps").on_attach
 local lsp_flags = {
@@ -34,42 +31,16 @@ local function get_settings(server)
   end
 end
 
+-- Setup coq_nvim autocompletion
 for _, server in ipairs(servers) do
-    nvim_lsp[server].setup {
+  nvim_lsp[server].setup(
+    coq.lsp_ensure_capabilities {
       on_attach = on_attach,
       flags = lsp_flags,
       settings = get_settings(server),
     }
+  )
 end
-
--- -- NOTE: Uncomment below block and comment out above block to use coq_nvim
--- -- instead of nvim-cmp for autocompletion
--- for _, server in ipairs(servers) do
---   if server == "sumneko_lua" then
---     nvim_lsp.sumneko_lua.setup {
---       require("coq").lsp_ensure_capabilites({
---       on_attach = on_attach,
---       flags = lsp_flags,
-
---       settings = {
---         Lua = {
---           diagnostics = {
---             globals = { "vim" },
---           },
---         },
---       },
---       })
---     }
-
---   else
---     nvim_lsp[server].setup {
---       require("coq").lsp_ensure_capabilites({
---       on_attach = on_attach,
---       flags = lsp_flags,
---       })
---     }
---   end
--- end
 -------------------------------------------------------------------------------
 -- Configure LSP diagnostics
 -------------------------------------------------------------------------------
