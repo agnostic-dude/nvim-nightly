@@ -5,3 +5,4 @@
 
 require "plugins.lsp.cmp"
 require "plugins.lsp.launcher"
+require "plugins.lsp.autocommands"
