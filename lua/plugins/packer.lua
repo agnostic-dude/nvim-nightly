@@ -97,9 +97,11 @@ local function plugins(use)
 
 
   use "neovim/nvim-lspconfig" --> Configurations for builtin LSP client
-  use "hrsh7th/nvim-cmp"      --> Autocompletion plugin
-  use "hrsh7th/cmp-nvim-lsp"  --> LSP source for nvim-cmp
-  use "saadparwaiz1/cmp_luasnip" --> Snippets source for nvim-cmp
+
+  use { "ms-jpq/coq_nvim", run = "python3 -m coq deps" }
+  use {"ms-jpq/coq.artifacts", branch = "artifacts"}
+  use "ms-jpq/coq.thirdparty" --> lua first & third party sources for coq.nvim
+  use "saadparwaiz1/cmp_luasnip" --> Snippets source for autocompletion
   use "L3MON4D3/LuaSnip"      --> Snippets plugin
 
   --> Find, filter, preview & pick
