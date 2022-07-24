@@ -21,31 +21,55 @@ local servers = {
   "bashls", --> bash, zsh
 }
 
-for _, server in ipairs(servers) do
+-- Settings dictionary modified if server is lua
+local function get_settings(server)
   if server == "sumneko_lua" then
-    nvim_lsp.sumneko_lua.setup {
-      on_attach = on_attach,
-      flags = lsp_flags,
-      capabilities = capabilities,
-
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" },
-          },
+    return {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
         },
       },
-    }
-
-  else
-    nvim_lsp[server].setup {
-      on_attach = on_attach,
-      flags = lsp_flags,
-      capabilities = capabilities,
     }
   end
 end
 
+for _, server in ipairs(servers) do
+    nvim_lsp[server].setup {
+      on_attach = on_attach,
+      flags = lsp_flags,
+      settings = get_settings(server),
+    }
+end
+
+-- -- NOTE: Uncomment below block and comment out above block to use coq_nvim
+-- -- instead of nvim-cmp for autocompletion
+-- for _, server in ipairs(servers) do
+--   if server == "sumneko_lua" then
+--     nvim_lsp.sumneko_lua.setup {
+--       require("coq").lsp_ensure_capabilites({
+--       on_attach = on_attach,
+--       flags = lsp_flags,
+
+--       settings = {
+--         Lua = {
+--           diagnostics = {
+--             globals = { "vim" },
+--           },
+--         },
+--       },
+--       })
+--     }
+
+--   else
+--     nvim_lsp[server].setup {
+--       require("coq").lsp_ensure_capabilites({
+--       on_attach = on_attach,
+--       flags = lsp_flags,
+--       })
+--     }
+--   end
+-- end
 -------------------------------------------------------------------------------
 -- Configure LSP diagnostics
 -------------------------------------------------------------------------------
