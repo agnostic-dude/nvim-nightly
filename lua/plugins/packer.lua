@@ -102,6 +102,8 @@ local function plugins(use)
   use "saadparwaiz1/cmp_luasnip" --> Snippets source for nvim-cmp
   use "L3MON4D3/LuaSnip"      --> Snippets plugin
 
+  use "mfussenegger/nvim-lint" --> asynchronous linter supporting LSP
+
   --> Find, filter, preview & pick
   use { "nvim-telescope/telescope.nvim", branch = "0.1.x",
     requires = "nvim-lua/plenary.nvim"
