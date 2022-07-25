@@ -19,6 +19,7 @@ local servers = {
   "clangd", --> C, C++, Objective-C
   "tsserver", --> typescript, javascript
   "bashls", --> bash, zsh
+  "hls",  --> haskell
 }
 
 -- Settings dictionary modified if server is lua
@@ -42,34 +43,6 @@ for _, server in ipairs(servers) do
     }
 end
 
--- -- NOTE: Uncomment below block and comment out above block to use coq_nvim
--- -- instead of nvim-cmp for autocompletion
--- for _, server in ipairs(servers) do
---   if server == "sumneko_lua" then
---     nvim_lsp.sumneko_lua.setup {
---       require("coq").lsp_ensure_capabilites({
---       on_attach = on_attach,
---       flags = lsp_flags,
-
---       settings = {
---         Lua = {
---           diagnostics = {
---             globals = { "vim" },
---           },
---         },
---       },
---       })
---     }
-
---   else
---     nvim_lsp[server].setup {
---       require("coq").lsp_ensure_capabilites({
---       on_attach = on_attach,
---       flags = lsp_flags,
---       })
---     }
---   end
--- end
 -------------------------------------------------------------------------------
 -- Configure LSP diagnostics
 -------------------------------------------------------------------------------
