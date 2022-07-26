@@ -26,7 +26,7 @@ function M.on_attach(client, bufnr)
   nnoremap("<Leader>do", vim.diagnostic.open_float) --> diagnostics in floating window
   nnoremap("<Leader>dp", vim.diagnostic.goto_prev)
   nnoremap("<Leader>dn", vim.diagnostic.goto_next)
-  nnoremap("<Leader>dl", vim.diagnostic.setloclist)
+  nnoremap("<Leader>dl", "<cmd>Telescope diagnostics<cr>") --> <C-q> to put these into quickfix list
 
   buf_noremap("n", "K", vim.lsp.buf.hover)
   buf_noremap("n", "gd", vim.lsp.buf.definition)
