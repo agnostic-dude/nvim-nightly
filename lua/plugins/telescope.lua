@@ -2,9 +2,8 @@
 -- Neovim Nightly Edtion (version 0.8)
 -- Telescope configuration
 --=============================================================================
-local actions = require "telescope.actions"
-
-require("telescope").setup {
+local telescope = require "telescope"
+telescope.setup {
   defaults = {
     mappings = {
       i = {
@@ -12,9 +11,10 @@ require("telescope").setup {
         -- actions.which_key shows the mappings for your picker
         ["<C-h>"] = "which_key",
 
-        -- By default telescope enters NORMAL mode on <Esc>, you have to press
-        -- <Esc> twice to exit; following makes telescope exit on <Esc>
-        ["<Esc>"] = actions.close,
+        -- <Esc> enters NORMAL mode by default, <Esc> twice to close window
+        -- by default <C-c> closes floating window, following code make <Esc>
+        -- close the floating window
+        -- ["<Esc>"] = require("telescope.actions").close,
       }
     }
   },
@@ -29,8 +29,14 @@ require("telescope").setup {
   },
 
   extensions = {
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
+    --> native telescope sorter to improve sorting performance
+    fzy_native = {
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    }
   }
 }
+
+-- Get fzf loaded and working with telescope
+telescope.load_extension("fzy_native")

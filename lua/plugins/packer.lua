@@ -106,17 +106,16 @@ local function plugins(use)
 
   --> make builtin LSP client work with programs that are not LSP servers
   use { "jose-elias-alvarez/null-ls.nvim",
-    -- config = function()
-    --   require("null-ls").setup()
-    -- end,
     requires = "nvim-lua/plenary.nvim",
   }
 
   --> Find, filter, preview & pick
   use { "nvim-telescope/telescope.nvim", branch = "0.1.x",
-    requires = "nvim-lua/plenary.nvim"
+    requires = "nvim-lua/plenary.nvim",
   }
-
+  --> FZY type sorted for telescope
+  use "nvim-telescope/telescope-fzy-native.nvim"
+  use "romgrk/fzy-lua-native"
   -----------------------------------------------------------------------------
 
   if packer_bootstrap then
