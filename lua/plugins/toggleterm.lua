@@ -9,6 +9,7 @@ function _G.set_terminal_keymaps()
   local opts = { noremap = true }
   vim.api.nvim_buf_set_keymap(0, "t", "<Esc>", "<C-\\><C-n>", opts)
 end
+
 vim.cmd [[ autocmd! TermOpen term://* lua set_terminal_keymaps() ]]
 
 require("toggleterm").setup {
@@ -25,18 +26,18 @@ require("toggleterm").setup {
   open_mapping = "<Leader><Space>",
   -- on_open = fun(t: Terminal), -- function to run when the terminal opens
   -- on_close = fun(t: Terminal), -- function to run when the terminal closes
-  hide_numbers = true,    -- hide the number column in toggleterm buffers
+  hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},
   shade_terminals = true,
   shading_factor = 3, --> degree by which to darken to terminal colour,
-                       --> default: 1 for dark backgrounds, 3 for light backgrounds
+  --> default: 1 for dark backgrounds, 3 for light backgrounds
   start_in_insert = true,
   insert_mappings = false, -- open mapping applies in INSERT mode or not
   terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
   persist_size = true,
-  direction = 'float',  -- options = 'vertical' | 'horizontal' | 'window' | 'float'
+  direction = 'float', -- options = 'vertical' | 'horizontal' | 'window' | 'float'
   close_on_exit = true, -- close the terminal window when the process exits
-  shell = vim.o.shell,  -- change the default shell
+  shell = vim.o.shell, -- change the default shell
 
   -- This field is only relevant if direction is set to 'float'
   float_opts = {
@@ -47,7 +48,7 @@ require("toggleterm").setup {
     -- border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
     border = 'curved',
     width = 160,
-    height = 38,
+    height = 36,
     winblend = 3,
     -- windblend = 30,
     highlights = {
