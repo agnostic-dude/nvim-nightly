@@ -63,6 +63,7 @@ local function plugins(use)
   use "vim-scripts/CycleColor" --> cycle through colorschemes in rtp
   use "sainnhe/sonokai" --> high-contrast, vivid theme based on Monokai Pro
   use "NLKNguyen/papercolor-theme" --> inspired by Google's Material Design
+  use "lunarvim/darkplus.nvim" --> LunarVim theme
 
   --> Utilities for coding
   use "jiangmiao/auto-pairs" --> autocomplete & link parenthesis
