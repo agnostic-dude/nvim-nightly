@@ -68,6 +68,8 @@ local function plugins(use)
   --> Utilities for coding
   use "jiangmiao/auto-pairs" --> autocomplete & link parenthesis
   use "tpope/vim-commentary" --> gc/gcc to comment/uncomment
+  use "lukas-reineke/indent-blankline.nvim" --> Show levels of indentation
+  use "RRethy/vim-illuminate" --> smart highlighting of words under cursor
 
   -- use "norcalli/nvim-colorizer.lua" --> highlight colorcodes in relevant color
   use { "norcalli/nvim-colorizer.lua",
@@ -85,9 +87,6 @@ local function plugins(use)
 
   --> Git support
   use { "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" }
-
-  --> Show levels of indentation
-  use "lukas-reineke/indent-blankline.nvim"
 
   -----------------------------------------------------------------------------
   -- PLUGINS RELATED TO PROGRAMMING
