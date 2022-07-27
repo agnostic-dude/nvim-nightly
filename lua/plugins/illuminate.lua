@@ -1,0 +1,5 @@
+--=============================================================================
+-- Neovim Nightly Edtion (version 0.8)
+-- vim-illuminate config
+-- Automatic intelligent highlighting of uses of word under cursor using LSP
+--=============================================================================
