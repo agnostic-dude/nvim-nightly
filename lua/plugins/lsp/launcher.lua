@@ -3,23 +3,26 @@
 -- Launch builtin LSP
 --=============================================================================
 local nvim_lsp = require "lspconfig"
+local nvim_cmp = require "cmp_nvim_lsp"
 
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local capabilities = nvim_cmp.update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
 
-local on_attach = require("plugins.lsp.keymaps").on_attach
+local on_attach = require("plugins.lsp.utils").on_attach
 local lsp_flags = {
   debounce_text_changes = 150, --> default
 }
 
+-- List of LSP servers to configure
 local servers = {
   "pyright", --> python
   "sumneko_lua", --> lua
   "clangd", --> C, C++, Objective-C
   "tsserver", --> typescript, javascript
   "bashls", --> bash, zsh
-  "hls",  --> haskell
+  "hls", --> haskell
 }
 
 -- Settings dictionary modified if server is lua
@@ -36,18 +39,9 @@ local function get_settings(server)
 end
 
 for _, server in ipairs(servers) do
-    nvim_lsp[server].setup {
-      on_attach = on_attach,
-      flags = lsp_flags,
-      settings = get_settings(server),
-    }
-end
-
--------------------------------------------------------------------------------
--- Configure LSP diagnostics
--------------------------------------------------------------------------------
-local signs = { Error = "", Warn = "⚠", Info = "", Hint = "" } -- warn =""
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  nvim_lsp[server].setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    settings = get_settings(server),
+  }
 end

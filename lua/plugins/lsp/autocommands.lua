@@ -1,6 +1,6 @@
 --=============================================================================
 -- Neovim Nightly Edtion (version 0.8)
--- LSP configuration: keymappings
+-- LSP configuration: autocommands
 --=============================================================================
 -- Show code actions when available
 local code_action_utils = require "plugins.lsp.code_action"
@@ -8,7 +8,7 @@ local code_action_utils = require "plugins.lsp.code_action"
 vim.api.nvim_create_autocmd(
   { "CursorHold", "CursorHoldI" }, {
   pattern = "*",
-  callback = function ()
+  callback = function()
     code_action_utils.code_action_listener()
   end,
   group = vim.api.nvim_create_augroup("ShowCodeAction", { clear = true }),

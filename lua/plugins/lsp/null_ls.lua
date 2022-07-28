@@ -1,32 +1,18 @@
-local function lsp_formatting(bufnr)
-  vim.lsp.buf.format({
-    filter = function (client)
-      return client.name == "null_ls"
-    end,
-    bufnr = bufnr,
-  })
+--=============================================================================
+-- Neovim Nightly Edtion (version 0.8)
+-- LSP configuration: null-ls configuration
+--=============================================================================
+local null_ls_status_ok, null_ls = pcall(require, "null-ls")
+if not null_ls_status_ok then
+  error("null-ls import failed", 2)
+  return
 end
 
--- Can use this as a callback if want to setup formatting on save
-local augroup = vim.api.nvim_create_augroup("LspBufFormatting", { clear = true })
+local formatting = null_ls.builtins.formatting
 
-local on_attach = function(client, bufnr)
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function ()
-        lsp_formatting(bufnr)
-      end,
-    })
-  end
-end
-
-local null_ls = require "null-ls"
-
-
-null_ls.setup ({
+null_ls.setup {
+  debug = false,
   sources = {
-    null_ls.builtins.formatting.black,
-  }
-})
+    formatting.black.with({ extra_args = { "--fast" } }),
+  },
+}
