@@ -13,6 +13,7 @@ local formatting = null_ls.builtins.formatting
 null_ls.setup {
   debug = false,
   sources = {
-    formatting.black.with({ extra_args = { "--fast" } }),
+    -- default line length = 88
+    formatting.black.with({ extra_args = { "--fast", "--line-length", "79" } }),
   },
 }
