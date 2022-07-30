@@ -19,10 +19,11 @@ local lsp_flags = {
 local servers = {
   "pyright", --> python
   "sumneko_lua", --> lua
-  "clangd", --> C, C++, Objective-C
+  "clangd", --> C, C++, Objective-C (https://clangd.llvm.org/features)
   "tsserver", --> typescript, javascript
   "bashls", --> bash, zsh
   "hls", --> haskell
+  "rust-analyzer", --> rust
 }
 
 -- Settings dictionary modified if server is lua
@@ -35,6 +36,27 @@ local function get_settings(server)
         },
       },
     }
+    --> tips on starting: https://sharksforarms.dev/posts/neovim-rust/
+    --> for rust-analyzer setup: https://github.com/simrat39/rust-tools.nvim
+  elseif server == "rust-analyzer" then
+    return {
+      ["rust-analyzer"] = {
+        imports = {
+          granularity = {
+            group = "module",
+          },
+          prefix = "self",
+        },
+        cargo = {
+          buildScripts = {
+            enable = true,
+          },
+        },
+        procMacro = {
+          enable = true,
+        },
+      }
+    }
   end
 end
 
@@ -43,5 +65,6 @@ for _, server in ipairs(servers) do
     on_attach = on_attach,
     flags = lsp_flags,
     settings = get_settings(server),
+    capabilities = capabilities,
   }
 end
