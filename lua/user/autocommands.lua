@@ -77,3 +77,6 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "html",
   command = "inoremap </ </<C-x><C-o>"
 })
+
+-- Source relavent skeleton file
+vim.cmd [[ autocmd BufNewFile *.py 0r ~/.local/share/nvim/templates/template.py ]]
