@@ -23,7 +23,7 @@ local servers = {
   "tsserver", --> typescript, javascript
   "bashls", --> bash, zsh
   "hls", --> haskell
-  "rust-analyzer", --> rust
+  "rust_analyzer", --> rust
 }
 
 -- Settings dictionary modified if server is lua
