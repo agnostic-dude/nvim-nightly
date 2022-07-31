@@ -66,6 +66,11 @@ vim.api.nvim_create_autocmd("FileType", {
   command = [[ let b:AutoPairs = AutoPairsDefine({ "f'": "'", "b'": "'" }) ]]
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "rust",
+  command = [[ let b:AutoPairs = AutoPairsDefine({ 'r#"': '"#' }) ]]
+})
+
 -- Make AutoPairs understand markup language angle brackets
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "html", "xml" },
