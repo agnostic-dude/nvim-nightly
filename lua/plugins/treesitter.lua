@@ -13,11 +13,19 @@ require("nvim-treesitter.configs").setup {
   sync_install = true, --> install parsers synchronously
 
   highlight = {
-    enable = true,  --> If false WHOLE EXTENSION is disabled!
+    enable = true, --> If false WHOLE EXTENSION is disabled!
 
     -- If true, ":h syntax" & "tree-sitter" will run at the same time, editor
     -- may slow down and some highlights may be duplicated. Unless you depend
     -- on "syntax=enable" keep it as false!
     additional_vim_regex_highlighting = false,
+  },
+  -- Settings for nvim-ts-rainbow module
+  rainbow = {
+    enable = true,
+    extended_mode = true, --> highlight non bracket delimiters (eg. html tags)
+    max_file_lines = nil, --> do not use for files > N lines
+    -- colors = {}, --> table of hex strings
+    -- termcolors = {}, --> table of color name strings
   },
 }

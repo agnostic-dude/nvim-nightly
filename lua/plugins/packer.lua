@@ -93,6 +93,8 @@ local function plugins(use)
   --> Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = "<Cmd>TSUpdate" }
   use "nvim-treesitter/nvim-treesitter-textobjects"
+  use "p00f/nvim-ts-rainbow" --> colors matched parenthesis using treesitter
+
 
 
   use "neovim/nvim-lspconfig" --> Configurations for builtin LSP client
