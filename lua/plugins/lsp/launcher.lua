@@ -55,6 +55,9 @@ local function get_settings(server)
         procMacro = {
           enable = true,
         },
+        checkOnSave = {
+          command = "clippy",
+        },
       }
     }
   end
