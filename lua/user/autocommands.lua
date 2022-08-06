@@ -66,9 +66,10 @@ vim.api.nvim_create_autocmd("FileType", {
   command = [[ let b:AutoPairs = AutoPairsDefine({ "f'": "'", "b'": "'" }) ]]
 })
 
+-- AutoPairs for rust
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "rust",
-  command = [[ let b:AutoPairs = AutoPairsDefine({ 'r#"': '"#' }) ]]
+  command = [[ let b:AutoPairs = AutoPairsDefine({ 'r#"': '"#', "\w\zs<": ">" }) ]]
 })
 
 -- Make AutoPairs understand markup language angle brackets
