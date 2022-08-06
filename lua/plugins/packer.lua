@@ -104,6 +104,8 @@ local function plugins(use)
   use "L3MON4D3/LuaSnip" --> Snippets plugin
 
   use "mfussenegger/nvim-lint" --> asynchronous linter supporting LSP
+  use { "folke/trouble.nvim", --> find troubles in source code files
+    requires = "kyazdani42/nvim-web-devicons" }
 
   --> make builtin LSP client work with programs that are not LSP servers
   use { "jose-elias-alvarez/null-ls.nvim",
