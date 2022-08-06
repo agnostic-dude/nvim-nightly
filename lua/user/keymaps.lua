@@ -49,12 +49,9 @@ nmap("<Leader>a", "<Cmd>Alpha<CR>")
 -- COLORSCHEME settings
 -------------------------------------------------------------------------------
 -- Switch between DARK and LIGHT backgrounds
+local toggle_backgrounds = { dark = "light", light = "dark" }
 local function ToggleBackground()
-  if vim.o.background == "dark" then
-    vim.o.background = "light"
-  else
-    vim.o.background = "dark"
-  end
+  vim.o.background = toggle_backgrounds[vim.o.background]
 end
 
 nmap("<Leader>cs", "<Cmd>colorscheme<CR>") --> show colorscheme
