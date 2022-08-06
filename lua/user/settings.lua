@@ -6,8 +6,8 @@
 -- Whitespace settings
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 2   -- use -1 for same value as "shiftwidth", 0 for "tabstop"
-vim.opt.shiftwidth = 2    -- use 0 for same value as "tabstop"
+vim.opt.softtabstop = 2 -- use -1 for same value as "shiftwidth", 0 for "tabstop"
+vim.opt.shiftwidth = 2 -- use 0 for same value as "tabstop"
 vim.opt.smarttab = true
 
 -- Indentation
@@ -50,7 +50,7 @@ vim.opt.hidden = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
-vim.opt.completeopt = {"menu", "menuone", "noselect"}
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.dictionary = '/usr/share/dict/allwords.txt'
 vim.opt.cmdheight = 2
 
@@ -67,4 +67,7 @@ end
 
 -- Set random theme
 local utils = require("user.utils")
-vim.cmd( "colorscheme " .. utils.GetRandomTheme() )
+vim.cmd("colorscheme " .. utils.GetRandomTheme())
+
+-- For auto-pairs
+vim.g.AutoPairsFlyMode = 1
